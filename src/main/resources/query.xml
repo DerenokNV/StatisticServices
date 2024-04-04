@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Querys>
+  <query name="getPerson">
+    select 1 as SEX,
+           sm.ID,
+           sm.DT,
+           sm.REGION_ID,
+           sm.INCOME
+    from PERSON_SEX_M sm
+    union all
+    select 0 as SEX,
+           sg.ID,
+           sg.DT,
+           sg.REGION_ID,
+           sg.INCOME
+    from PERSON_SEX_G sg
+  </query>
+
+  <query name="insertPersonM">
+    insert into PERSON_SEX_M( ID, DT, REGION_ID, INCOME ) values ( ?, ?, ?, ? )
+  </query>
+
+  <query name="insertPersonG">
+    insert into PERSON_SEX_G( ID, DT, REGION_ID, INCOME ) values ( ?, ?, ?, ? )
+  </query>
+
+  <query name="deleteStatRegion">
+    delete from STAT_REGION
+  </query>
+
+  <query name="insertStatRegion">
+    insert into STAT_REGION( REGION_ID, ALL_PEOPLE, ABLE_BODIED, ABLE_BODIED_PERCENT, INCOME_AVG, INCOME_MAX, JOBLESS, JOBLESS_PERCENT )
+    values ( ?, ?, ?, ?, ?, ?, ?, ? )
+  </query>
+
+  <query name="deleteStatRu">
+    delete from STAT_RU
+  </query>
+
+  <query name="insertStatRu">
+    insert into STAT_RU( ALL_PEOPLE, ABLE_BODIED, ABLE_BODIED_PERCENT, INCOME_AVG, INCOME_MAX, JOBLESS, JOBLESS_PERCENT )
+    values ( ?, ?, ?, ?, ?, ?, ? )
+  </query>
+
+</Querys>

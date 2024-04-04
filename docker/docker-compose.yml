@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  postgres-web:
+    image: postgres:13.3
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=app_db
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
