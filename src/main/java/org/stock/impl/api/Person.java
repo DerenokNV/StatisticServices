@@ -1,6 +1,7 @@
 package org.stock.impl.api;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 /**
  * Человечек
