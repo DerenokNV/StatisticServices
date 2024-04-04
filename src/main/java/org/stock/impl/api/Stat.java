@@ -6,7 +6,6 @@ import java.io.Serializable;
  * Класс статистики раб/безработ
  */
 public class Stat implements Serializable {
-  private static final long serialUID = 12120023L;
 
   // Всего человек
   private Integer pioples;

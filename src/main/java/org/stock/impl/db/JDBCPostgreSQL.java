@@ -28,7 +28,6 @@ public class JDBCPostgreSQL {
       Class.forName("org.postgresql.Driver");
     } catch ( ClassNotFoundException e ) {
       System.out.println( "PostgreSQL JDBC Driver is not found. Include it in your library path " );
-      e.printStackTrace();
       return;
     }
 
@@ -39,7 +38,6 @@ public class JDBCPostgreSQL {
 
     } catch ( SQLException e ) {
       System.out.println( "Connection Failed" );
-      e.printStackTrace();
       return;
     }
 
@@ -59,8 +57,8 @@ public class JDBCPostgreSQL {
       if ( rSet != null ) {
         rSet.close();
       }
-    } catch (SQLException ex) {
-      ex.printStackTrace();
+    } catch ( SQLException ex ) {
+      System.out.println( "Error closeResultSet:" + ex );
     }
   }
 
@@ -69,8 +67,8 @@ public class JDBCPostgreSQL {
       if ( statement != null ) {
         statement.close();
       }
-    } catch (SQLException ex) {
-      ex.printStackTrace();
+    } catch ( SQLException ex ) {
+      System.out.println( "Error closeStatement:" + ex );
     }
   }
 }

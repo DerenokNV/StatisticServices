@@ -6,7 +6,6 @@ import java.io.Serializable;
  * Класс статистики раб/безработ по Региону
  */
 public class StatRegion implements Serializable {
-  private static final long serialUID = 12100023L;
 
   private int regionId;
   private Stat stat;

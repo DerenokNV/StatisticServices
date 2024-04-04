@@ -1,15 +1,11 @@
 package org.stock.impl.api;
 
-import org.stock.impl.utils.Toolkit;
-
 import java.io.Serializable;
-import java.util.UUID;
 
 /**
  * Человечек
  */
 public class Person implements Serializable {
-  private static final long serialUID = 12000023L;
 
   private long id;
   private int sex;

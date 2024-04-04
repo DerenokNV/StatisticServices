@@ -81,8 +81,8 @@ public class PersonManager {
     int allPerson = 0;
     int allAbleBod = 0;
     int allJobless = 0;
-    Double allIncomeMax = 0.0;
-    Double allIncomeSum = 0.0;
+    double allIncomeMax = 0.0;
+    double allIncomeSum = 0.0;
     int countAvgIncome = 0;
 
     // это считаемые данные, все удалим и заново зальем
@@ -117,7 +117,7 @@ public class PersonManager {
 
         OptionalDouble optavg = regionPersons.getValue().stream()
                                                         .filter( x -> x.getIncome() != null )
-                                                        .mapToDouble( x -> x.getIncome() ).average();
+                                                        .mapToDouble( Person::getIncome ).average();
         if ( optavg.isPresent() ) {
           allIncomeSum = allIncomeSum + optavg.getAsDouble();
           countAvgIncome++;
@@ -128,7 +128,7 @@ public class PersonManager {
 
         OptionalDouble optmax = regionPersons.getValue().stream()
                                                         .filter( x -> x.getIncome() != null )
-                                                        .mapToDouble( x -> x.getIncome() ).max();
+                                                        .mapToDouble( Person::getIncome ).max();
         if ( optmax.isPresent() ) {
           if ( allIncomeMax < optmax.getAsDouble() ) {
             allIncomeMax = optmax.getAsDouble();
@@ -186,8 +186,8 @@ public class PersonManager {
 
   /**
    * Подсчет трудоспособных и не очень
-   * @param persons
-   * @return
+   * @param persons - список персон по региону
+   * @return - key - трудоспособны, value - безработны
    */
   private static Pair<Integer,Integer> calcCountAbleBodAndJobless( List<Person> persons ) {
     int ableBond = 0;

@@ -20,8 +20,6 @@ public class StatPersonRest {
   @POST
   @Path("/add")
   public Response addPerson( PersonRequest request ) {
-    boolean d = checkPersRequest( request );
-
     if ( checkPersRequest( request ) ) {
       return Response
               .status( Response.Status.OK )
